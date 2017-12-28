@@ -1,6 +1,6 @@
-# Spring Boot Music Collection REST Microservice using MySQL, JPA, Hibernate Rest API
+# Spring Boot Music Collection REST Microservice
 
-Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
+Build Restful CRUD API for a simple Music Collection application using Spring Boot, Mysql, JPA and Hibernate.
 
 ## Prerequisites
 
