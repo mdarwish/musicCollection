@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.validus.musicCollection.service;
 
 import java.sql.Timestamp;
@@ -17,22 +20,44 @@ import com.validus.musicCollection.repo.SongRepository;
 
 @Service
 public class MusicService {
+	/**
+	 * 
+	 */
 	@Autowired
 	private SongRepository songRepo;
 	
+	/**
+	 * 
+	 */
 	@Autowired
 	private ArtistRepository artistRepo;
 	
+	/**
+	 * 
+	 */
 	@Autowired
 	private AlbumRepository albumRepo;
 
 
+	/**
+	 * Adds the album.
+	 *
+	 * @param srtist_id the srtist id
+	 * @param album the album
+	 * @return the album
+	 */
 	public Album addAlbum(Integer srtist_id, Album album) {
 		Artist singer = artistRepo.findOne(srtist_id);
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		return albumRepo.save(new Album(singer, album.getName(), album.getYearReleased(), ts));
 	}
 
+	/**
+	 * @param srtist_id
+	 * @param album_id
+	 * @param song
+	 * @return
+	 */
 	public Song addSong(Integer srtist_id, Integer album_id, Song song) {
 		Artist singer = artistRepo.findOne(srtist_id);
 		Album record = albumRepo.findOne(album_id);
@@ -43,6 +68,11 @@ public class MusicService {
 		return songRepo.save(song);
 	}
 	
+	/**
+	 * @param id
+	 * @param album
+	 * @return
+	 */
 	public Album updateAlbum(Integer id, Album album) {
 		Album existing = albumRepo.findOne(id);
 		album.setId(id);
@@ -52,6 +82,11 @@ public class MusicService {
 		return albumRepo.save(album);
 	}
 
+	/**
+	 * @param id
+	 * @param song
+	 * @return
+	 */
 	public Song updateSong(Integer id, Song song) {
 		Song existing = songRepo.findOne(id);
 		Artist singer = existing.getArtist();
@@ -64,11 +99,10 @@ public class MusicService {
 		return songRepo.save(song);
 	}
 	
+	/**
+	 * @param id
+	 */
 	public void deleteAlbum(final Integer id) {
-		Album existing = albumRepo.findOne(id);
-		for (Song song : existing.getSongs()) {
-			songRepo.delete(song.getId());
-		}
 		albumRepo.delete(id);
 	}
 

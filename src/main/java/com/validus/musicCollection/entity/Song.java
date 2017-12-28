@@ -2,6 +2,8 @@ package com.validus.musicCollection.entity;
 // Generated 26-Dec-2017 4:13:49 PM by Hibernate Tools 5.2.6.Final
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -60,7 +62,7 @@ public class Song implements java.io.Serializable {
 	}
 
 	/*@Type(type = "json")*/
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "album_id", nullable = false)
 	@JsonIgnore
 	public Album getAlbum() {

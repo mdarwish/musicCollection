@@ -4,6 +4,8 @@ package com.validus.musicCollection.entity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -97,7 +99,7 @@ public class Artist implements java.io.Serializable {
 
 	/*@Type(type = "json")*/
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "artist")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "artist", cascade = CascadeType.REMOVE)
 	public Set<Song> getSongs() {
 		return this.songs;
 	}
@@ -108,7 +110,7 @@ public class Artist implements java.io.Serializable {
 
 	/*@Type(type = "json")*/
 	//@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "artist")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "artist", cascade = CascadeType.REMOVE)
 	public Set<Album> getAlbums() {
 		return this.albums;
 	}
