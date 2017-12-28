@@ -93,7 +93,14 @@ The app defines following CRUD APIs.
 
 You can GET requests in the browser. Other verbs can be tested using SoapUI or any other rest client.
 
-##Example requests
+# TODO
+**1. JUnit tests**
+
+**2. Spring REST Docs**
+
+**3. UI**
+
+# Sample requests
 
 	```bash
 	//Retrieve all songs request
