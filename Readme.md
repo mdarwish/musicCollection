@@ -181,4 +181,4 @@ Added in latest update
 ![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202018-01-01-DeleteSong.png?raw=true)
 
 ### Documentation sample
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202018-01-RESTDocs.png?raw=true)
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-31-RESTDocs.png?raw=true)
