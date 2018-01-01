@@ -52,11 +52,11 @@
 		    <artifactId>spring-boot-admin-starter-client</artifactId>
 		    <version>1.4.3</version>
 		</dependency>		
-	    <dependency>
-	        <groupId>org.springframework.restdocs</groupId>
-	        <artifactId>spring-restdocs-mockmvc</artifactId>
-	        <version>2.0.0.RELEASE</version>
-	    </dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -66,21 +66,80 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-			    <groupId>org.asciidoctor</groupId>
-			    <artifactId>asciidoctor-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Documentation.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.3</version>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html</backend>
+							<doctype>book</doctype>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.restdocs</groupId>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
+						<version>2.0.0.RELEASE</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}/static/docs</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-docs</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+			    <artifactId>maven-resources-plugin</artifactId>
+			    <version>2.7</version>
 			    <executions>
 			        <execution>
-			            <id>generate-docs</id>
+			            <id>copy-resources</id>
 			            <phase>prepare-package</phase>
 			            <goals>
-			                <goal>process-asciidoc</goal>
+			                <goal>copy-resources</goal>
 			            </goals>
 			            <configuration>
-			                <sourceDocumentName>index.adoc</sourceDocumentName>
-			                <backend>html</backend>
-			                <attributes>
-			                    <snippets>${project.build.directory}/snippets</snippets>
-			                </attributes>
+			                <outputDirectory>
+			                    ${project.build.outputDirectory}/static/docs
+			                </outputDirectory>
+			                <resources>
+			                    <resource>
+			                        <directory>
+			                            ${project.build.directory}/generated-docs
+			                        </directory>
+			                    </resource>
+			                </resources>
 			            </configuration>
 			        </execution>
 			    </executions>
@@ -88,5 +147,26 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>

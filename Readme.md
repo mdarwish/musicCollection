@@ -57,32 +57,32 @@ The app will start running at <http://localhost:9700>. You can change the port b
 The app defines following CRUD APIs.
 
 ### Create Endpoints
-    POST /artist/new
+    POST /collection/artist/new
 
-    POST /artist/{artist_id}/album/new
+    POST /collection/artist/{artist_id}/album/new
 
-    POST /artist/{artist_id}/album/{album_id}/song/new
+    POST /collection/artist/{artist_id}/album/{album_id}/song/new
 
 ### Retrieve Endpoints
-    GET /artists
+    GET /collection/artists
     
-    GET /albums
+    GET /collection/albums
     
-    GET /songs
+    GET /collection/songs
     
 ### Update Endpoints
-    PUT /artist/{id}
+    PUT /collection/artist/{id}
     
-    PUT /album/{id}
+    PUT /collection/album/{id}
 
-    PUT /song/{id}
+    PUT /collection/song/{id}
 
 ### Update Endpoints
-	DELETE /song/{Id}
+	DELETE /collection/song/{Id}
 
-	DELETE /album/{id}
+	DELETE /collection/album/{id}
 	
-	DELETE /artist/{Id}
+	DELETE /collection/artist/{Id}
 	
 ### Management Endpoints
 	GET /health
@@ -94,28 +94,30 @@ The app defines following CRUD APIs.
 You can GET requests in the browser. Other verbs can be tested using SoapUI or any other rest client.
 
 # TODO
-**1. JUnit tests**
+**1. JUnit tests smaples**
+Added in latest update
 
-**2. Spring REST Docs**
+**2. Spring REST Docs samples**
+Added in latest update
 
-**3. UI**
+**3. UI** (Not applicable)
 
 # Sample requests
 
 	```bash
 	//Retrieve all songs request
-	GET http://localhost:9700/songs HTTP/1.1
+	GET http://localhost:9700/collection/songs HTTP/1.1
 	
 	//Retrieve all artists request
-	GET http://localhost:9700/artists HTTP/1.1
+	GET http://localhost:9700/collection/artists HTTP/1.1
 	
 	//Retrieve all albums request
-	GET http://localhost:9700/albums HTTP/1.1
+	GET http://localhost:9700/collection/albums HTTP/1.1
 	
 	//Retrieve all albums for specific artist
-	GET http://localhost:9700/artist/14/albums HTTP/1.1
+	GET http://localhost:9700/collection/artist/14/albums HTTP/1.1
 	
-	POST http://localhost:9700/artist/new HTTP/1.1
+	POST http://localhost:9700/collection/artist/new HTTP/1.1
 	content-type: application/json
 	
 	{
@@ -123,7 +125,7 @@ You can GET requests in the browser. Other verbs can be tested using SoapUI or a
 	}
 	
 	//Add new album request
-	POST http://localhost:9700/artist/18/album/new HTTP/1.1
+	POST http://localhost:9700/collection/artist/18/album/new HTTP/1.1
 	content-type: application/json
 	
 	{
@@ -132,7 +134,7 @@ You can GET requests in the browser. Other verbs can be tested using SoapUI or a
 	}
 	
 	//Update album request
-	PUT http://localhost:9700/album/75 HTTP/1.1
+	PUT http://localhost:9700/collection/album/75 HTTP/1.1
 	content-type: application/json
 	
 	{
@@ -140,7 +142,7 @@ You can GET requests in the browser. Other verbs can be tested using SoapUI or a
 	}
 	
 	//Add new song request
-	POST http://localhost:9700/artist/18/album/75/song/new HTTP/1.1
+	POST http://localhost:9700/collection/artist/18/album/75/song/new HTTP/1.1
 	content-type: application/json
 	
 	{
@@ -148,7 +150,7 @@ You can GET requests in the browser. Other verbs can be tested using SoapUI or a
 	}
 	
 	//Update song request
-	PUT http://localhost:9700/song/36 HTTP/1.1
+	PUT http://localhost:9700/collection/song/36 HTTP/1.1
 	content-type: application/json
 	
 	{
@@ -157,20 +159,26 @@ You can GET requests in the browser. Other verbs can be tested using SoapUI or a
 	}
 	
 	//Delete song request
-	DELETE http://localhost:9700/song/37 HTTP/1.1
+	DELETE http://localhost:9700/collection/song/37 HTTP/1.1
 	
-	DELETE http://localhost:9700/album/74 HTTP/1.1
+	DELETE http://localhost:9700/collection/album/74 HTTP/1.1
 	
-	DELETE http://localhost:9700/artist/17 HTTP/1.1
+	DELETE http://localhost:9700/collection/artist/17 HTTP/1.1
 
 
 ## Screen shots
 
 ### Retrieving Artists
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-28-Artists.png?raw=true)
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-31-Artists.png?raw=true)
 
-### Retrieving Albums
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-28-Albums.png?raw=true)
+### Retrieving Album by its ID
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-31-AlbumById?raw=true)
 
-### Retrieving Songs
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-28-Songs.png?raw=true)
+### Adding a Song
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202017-12-31-NewSong.png?raw=true)
+
+### Deleting a Song
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202018-01-01-DeleteSong.png?raw=true)
+
+### Documentation sample
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/Screenshot%20from%202018-01-RESTDocs.png?raw=true)

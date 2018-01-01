@@ -1,74 +1,98 @@
- = Music-service Getting Started Guide
-  Mahmoud Darwish;
-  :doctype: book
-  :icons: font
-  :source-highlighter: highlightjs
-  :toc: left
-  :toclevels: 4
-  :sectlinks:
+= Music Collection Getting Started Guide
+Mahmoud Darwish;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
 
-  [introduction]
-  = Introduction
+[introduction]
+= Introduction
 
-  Music-service is a RESTful microservice for managing personal music collection of Artists, Albums, and Songs stored persisted in music repository
+musicCollection is a RESTful microservice for interacting with Music Collection Repository stored in MySQL
 
-  [[overview]]
-  = Overview
+[[overview]]
+= Overview
 
-  [[overview-http-verbs]]
-  == HTTP verbs
-  Music-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
-  use of HTTP verbs.
-  |===
-  | Verb | Usage
+[[overview-http-verbs]]
+== HTTP verbs
+  musicCollection tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+|===
+| Verb | Usage
 
-  | `GET`
-  | Used to retrieve a resource
+| `GET`
+| Used to retrieve a resource
 
-  | `POST`
-  | Used to create a new resource
+| `POST`
+| Used to create a new resource
 
-  | `PATCH`
-  | Used to update an existing resource, including partial updates
+| `PUT`
+| Used to update an existing resource, full updates only
 
-  | `PUT`
-  | Used to update an existing resource, full updates only
+| `DELETE`
+| Used to delete an existing resource
+|===
 
-  | `DELETE`
-  | Used to delete an existing resource
-  |===
+[[overview-http-status-codes]]
+== HTTP status codes
+Collection-service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
 
-  [[overview-http-status-codes]]
-  == HTTP status codes
-  Music-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
-  use of HTTP status codes.
+|===
+| Status code | Usage
+	
+| `200 OK`
+| Standard response for successful HTTP requests.
+| The actual response will depend on the request method used.
+| In a GET request, the response will contain an entity corresponding to the requested resource.
+| In a POST request, the response will contain an entity describing or containing the result of the action.
 
-  |===
-  | Status code | Usage
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
 
-  | `200 OK`
-  | Standard response for successful HTTP requests.
-  | The actual response will depend on the request method used.
-  | In a GET request, the response will contain an entity corresponding to the requested resource.
-  | In a POST request, the response will contain an entity describing or containing the result of the action.
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
 
-  | `201 Created`
-  | The request has been fulfilled and resulted in a new resource being created.
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
 
-  | `204 No Content`
-  | The server successfully processed the request, but is not returning any content.
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
 
-  | `400 Bad Request`
-  | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-
-  | `404 Not Found`
-  | The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
-  |===
-
-  [[resources]]
-  = Resources
+[[resources]]
+== Resources
 
 
-  [[resources-artist]]
-  == Artist
-  The Artist resource is used to create, modify and list singers, composers, or bands.
+[[resources-collection]]
+=== Collection
+The Collection resource is the main entry for the system.
+
+
+[[resource-collection]]
+=== Listing the collection
+A `GET` request lists all of the service's content.
+
+==== Example request
+
+include::{snippets}/collection/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/collection/http-request.adoc[]
+
+
+[[resource-artist]]
+=== Fetching artists
+A `GET` request fetches a specific artist.
+
+include::{snippets}/getArtistById/curl-request.adoc[]
+
+
+==== Example request
+
+include::{snippets}/getArtistById/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getArtistById/http-response.adoc[]

@@ -23,7 +23,7 @@ import com.validus.musicCollection.repo.*;
 import com.validus.musicCollection.service.MusicService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/collection")
 public class musicController {
 	
 	/** The song repo. */
@@ -77,12 +77,13 @@ public class musicController {
 	 * @param artist_id the artist id
 	 * @return the newly inserted album
 	 */
-	@PostMapping("/artist/{artist_id}/album/new")
+	@PostMapping("artist/{artist_id}/album/new")
 	public Album createAlbum(@Valid @RequestBody Album album, @PathVariable final Integer artist_id) {
 		return musicService.addAlbum(artist_id, album);
 	}
 
 	//Retrieve Operations
+
 	/**
 	 * @return
 	 */
@@ -95,7 +96,16 @@ public class musicController {
 	/**
 	 * @return
 	 */
-	@GetMapping("artists")
+	@GetMapping(value = {"song/{id}"})
+	public Song getSongsById(@PathVariable("id")  final Integer id) {
+		Song ret = songRepo.findOne(id);
+		return ret;
+	}
+	
+	/**
+	 * @return
+	 */
+	@GetMapping(value = {"", "artists", "artist/all"})
 	public Iterable<Artist> getAllArtists() {
 		Iterable<Artist> ret = artistRepo.findAll();
 		return ret;
@@ -104,9 +114,27 @@ public class musicController {
 	/**
 	 * @return
 	 */
-	@GetMapping("albums")
+	@GetMapping("artist/{id}")
+	public Artist getArtistById(@PathVariable("id")  final Integer id) {
+		Artist ret = artistRepo.findOne(id);
+		return ret;
+	}
+	
+	/**
+	 * @return
+	 */
+	@GetMapping(value = {"albums", "album/all"})
 	public Iterable<Album> getAllAlbums() {
 		Iterable<Album> ret = albumRepo.findAll();
+		return ret;
+	}
+	
+	/**
+	 * @return
+	 */
+	@GetMapping("album/{id}")
+	public Album getAlbumById(@PathVariable("id")  final Integer id) {
+		Album ret = albumRepo.findOne(id);
 		return ret;
 	}
 	
@@ -147,8 +175,9 @@ public class musicController {
 	 * @param id
 	 */
 	@DeleteMapping("/artist/{id}")
-	public void deleteArtist(@PathVariable("id") final Integer id) {
+	public String deleteArtist(@PathVariable("id") final Integer id) {
 		artistRepo.delete(id);
+		return "Atrist deleted successfully.";
 	}
 
 
@@ -156,15 +185,17 @@ public class musicController {
 	 * @param id
 	 */
 	@DeleteMapping("/album/{id}")
-	public void deleteAlbum(@PathVariable("id") final Integer id) {
+	public String deleteAlbum(@PathVariable("id") final Integer id) {
 		musicService.deleteAlbum(id);
+		return "Album deleted successfully.";
 	}
 
 	/**
 	 * @param id
 	 */
 	@DeleteMapping("/song/{id}")
-	public void deleteSong(@PathVariable("id") final Integer id) {
+	public String deleteSong(@PathVariable("id") final Integer id) {
 		songRepo.delete(id);	
+		return "Song deleted successfully.";
 	}
 }
