@@ -1,0 +1,44 @@
+== View collection
+
+Example of curl command:
+
+include::{snippets}/collection/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/collection/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/collection/http-response.adoc[]
+
+
+== Retrieve all songs
+
+Example of curl command:
+
+include::{snippets}/getAllSongs/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/getAllSongs/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/getAllSongs/http-response.adoc[]
+
+
+== Retrieve a song by its ID
+
+Example of curl command:
+
+include::{snippets}/getSongById/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/getSongById/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/getSongById/http-response.adoc[]
+
