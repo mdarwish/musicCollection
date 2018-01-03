@@ -31,7 +31,7 @@ create database music_repo
 
 + change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
 
-**6. Build and run the app using maven**
+**5. Build and run the app using maven**
 Switch to the folder where you cloned the repository on your local machine and build the application
 
 ```bash 
@@ -51,6 +51,12 @@ The app will start running at <http://localhost:9700>. You can change the port b
 
 ## Application Layout
 ![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/project_structure.png?raw=true)
+
+## Class diagram
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/class-diagram.jpg)
+
+## Sample Sequence diagram
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/Controller.jpg)
 
 ## Explore Rest APIs
 
@@ -77,7 +83,7 @@ The app defines following CRUD APIs.
 
     PUT /collection/song/{id}
 
-### Update Endpoints
+### Delete Endpoints
 	DELETE /collection/song/{Id}
 
 	DELETE /collection/album/{id}

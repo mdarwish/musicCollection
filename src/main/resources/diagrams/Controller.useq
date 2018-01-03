@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.validus.musicCollection.api.musicController" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/api/musicController.java" binary="false" 
+    label="musicController" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="100" y="0"/>    
+    <execution id="2">      
+      <position height="90" width="141" x="5" y="124"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="18" width="7" x="72" y="160"/>    
+    </execution>  
+  </object>  
+  <object id="6" language="java" name="com.validus.musicCollection.service.MusicService" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/service/MusicService.java" binary="false" 
+    label="musicService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="646" y="0"/>    
+    <execution id="4">      
+      <position height="54" width="159" x="150" y="142"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="90" width="159" x="150" y="181"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="90" width="159" x="150" y="255"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="18" width="7" x="226" y="217"/>    
+    </execution>    
+    <execution id="15">      
+      <position height="18" width="7" x="229" y="291"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="com.validus.musicCollection.entity.Artist" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/entity/Artist.java" binary="false" label="artist" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="371" y="0"/>  
+  </object>  
+  <object id="17" language="java" name="com.validus.musicCollection.entity.Album" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/entity/Album.java" binary="false" label="album" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="478" y="0"/>  
+  </object>  
+  <object id="18" language="java" name="com.validus.musicCollection.entity.Song" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/entity/Song.java" binary="false" label="song" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="595" y="0"/>    
+    <execution id="10">      
+      <position height="54" width="152" x="625" y="199"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.validus.musicCollection.api.musicController" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/api/musicController.java" binary="false" 
+    label="musicController1" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="21" language="java" name="com.validus.musicCollection.repo.SongRepository" project="musicCollection" 
+    file="/musicCollection/src/main/java/com/validus/musicCollection/repo/SongRepository.java" binary="false" 
+    label="songRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="572" y="0"/>    
+    <execution id="13">      
+      <position height="54" width="147" x="926" y="273"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="addSong(java.lang.Integer,java.lang.Integer,com.validus.musicCollection.entity.Song):com.validus.musicCollection.entity.Song" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="7" 
+    operation="createSong(java.lang.Integer,java.lang.Integer,com.validus.musicCollection.entity.Song):com.validus.musicCollection.entity.Song" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="9" 
+    operation="Song(com.validus.musicCollection.entity.Album,com.validus.musicCollection.entity.Artist,java.lang.String,java.util.Date,java.util.Date)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="12" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="19" 
+    operation="addSong(java.lang.Integer,java.lang.Integer,com.validus.musicCollection.entity.Song):com.validus.musicCollection.entity.Song" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="22" 
+    operation="addSong(java.lang.Integer,java.lang.Integer,com.validus.musicCollection.entity.Song):com.validus.musicCollection.entity.Song" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>
+</sequence-diagram>
