@@ -53,10 +53,10 @@ The app will start running at <http://localhost:9700>. You can change the port b
 ![alt text](https://github.com/mdarwish/musicCollection/blob/master/screens/project_structure.png?raw=true)
 
 ## Class diagram
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/class-diagram.jpg)
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/diagrams/class-diagram.jpg)
 
 ## Sample Sequence diagram
-![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/Controller.jpg)
+![alt text](https://github.com/mdarwish/musicCollection/blob/master/src/main/resources/diagrams/Controller.jpg)
 
 ## Explore Rest APIs
 
